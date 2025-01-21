@@ -31,7 +31,7 @@ fi
 fi
 
 if [ "$charging_status" = "discharging" ]; then
-if [ "$battery_percent" -le 100 ]; then
+if [ "$battery_percent" -le 10 ]; then
 	 speak $battery_percent
 fi
 fi
