@@ -19,7 +19,7 @@ speak(){
 
 if [ "$os_name" = "Darwin" ]; then
 	charging_status=`pmset -g batt| awk 'NR==2'| awk -F' ' '{print $4}'| awk -F ';' '{print $1}'`
-	battery_percent=`pmset -g batt| awk 'NR==2'| awk -F' ' '{pritn $3}'| awk -F ';' '{print $1}'`
+	battery_percent=`pmset -g batt| awk 'NR==2'| awk -F' ' '{print $3}'| awk -F '%' '{print $1}'`
 elif [ "$os_name" = "Linux" ]; then
 	charging_status=`cat /sys/class/power_supply/BAT0/status | tr '[:upper:]' '[:lower:]'`
 	battery_percent=`cat /sys/class/power_supply/BAT0/capacity| tr '[:upper:]' '[:lower:]'`
